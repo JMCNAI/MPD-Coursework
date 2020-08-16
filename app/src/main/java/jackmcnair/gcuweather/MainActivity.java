@@ -9,10 +9,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import java.io.*;
 import java.net.*;
 
 import android.os.*;
+
 import java.net.MalformedURLException;
 
 
@@ -25,21 +27,15 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ListView lvRss;
-    private ArrayList<WeatherItem> items;
+    private ArrayList<WeatherItem> items = new ArrayList<>();
     private String baseUrl = "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/";
     private String[] locationIDs = new String[]{"2648579", "2643743", "5128581", "287286", "934154", "1185241"};
-    private ArrayList<String> titles;
-    private ArrayList<String> descriptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lvRss = findViewById(R.id.lvRss);
-
-        items = getData();
-        titles = new ArrayList<String>();
-        descriptions = new ArrayList<String>();
 
         lvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -48,41 +44,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        for (int i = 0; i < items.size(); i++) {
-            TextView item = new TextView(this);
-            item.setTextSize(24);
-            item.setText(items.get(i).getLocationName() + " - " + items.get(i).getTemperature());
-            //list.addView(item);
-        }
-
-        new ProccessInBackground().execute();
+        new ProcessInBackground().execute();
     }
 
-    public ArrayList<WeatherItem> getData() {
-        ArrayList<WeatherItem> newItems = new ArrayList<>();
-        newItems.add(new WeatherItem("Glasgow", 50));
-        newItems.add(new WeatherItem("London", 50));
-        newItems.add(new WeatherItem("NewYork", 50));
-        newItems.add(new WeatherItem("Oman", 50));
-        newItems.add(new WeatherItem("Mauritius", 50));
-        newItems.add(new WeatherItem("Bangladesh", 50));
-        return newItems;
-    }
-
-    public InputStream getInputStream(URL url)
-    {
-        try
-        {
+    public InputStream getInputStream(URL url) {
+        try {
             return url.openConnection().getInputStream();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
-
     }
 
-    public class ProccessInBackground extends AsyncTask<Integer, Void, Exception>
-    {
+    public class ProcessInBackground extends AsyncTask<Integer, Void, Exception> {
         ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
 
         Exception exception = null;
@@ -97,76 +71,93 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected Exception doInBackground(Integer... integers) {
+            try {
+                for (int i = 0; i < locationIDs.length; i++) {
 
-            try
-            {
-                URL url = new URL("https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/2648579");
+                    WeatherItem weatherItem = new WeatherItem();
 
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    URL url = new URL(baseUrl + locationIDs[i]);
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    factory.setNamespaceAware(false);
+                    XmlPullParser xpp = factory.newPullParser();
+                    xpp.setInput(getInputStream(url), "UTF_8");
+                    boolean insideItem = false;
+                    int eventType = xpp.getEventType();
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG) {
+                            if (xpp.getName().equalsIgnoreCase("item")) {
+                                insideItem = true;
+                            } else if (xpp.getName().equalsIgnoreCase("title")) {
+                                if (insideItem) {
+                                    String title = xpp.nextText();
+                                    String[] titleParts = title.split(", ");
+                                    weatherItem.getDay().add(titleParts[0].split(": ")[0]);
+                                    weatherItem.getRain().add(titleParts[0].split(": ")[1]);
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("description")) {
+                                if (insideItem) {
+                                    String description = xpp.nextText();
+                                    String[] descriptionParts = description.split(", ");
+                                    weatherItem.getRain().add(descriptionParts[0].split(": ")[1]);
 
-                factory.setNamespaceAware(false);
+                                    String[] partTitles = {"Maximum Temperature",
+                                            "Minimum Temperature", "Wind Direction",
+                                            "Wind Speed", "Visibility", "Pressure",
+                                            "Humidity", "UV Risk", "Pollution",
+                                            "Sunrise", "Sunset"
+                                    };
 
-                XmlPullParser xpp = factory.newPullParser();
-
-                xpp.setInput(getInputStream(url),"UTF_8");
-
-                boolean insideItem = false;
-
-                int eventType = xpp.getEventType();
-
-                while (eventType != XmlPullParser.END_DOCUMENT)
-                {
-                    if (eventType == XmlPullParser.START_TAG)
-                    {
-                        if (xpp.getName().equalsIgnoreCase("item"))
-                        {
-                            insideItem = true;
-                        }
-                        else if (xpp.getName().equalsIgnoreCase("title"))
-                        {
-                           if (insideItem)
-                           {
-                                titles.add(xpp.nextText());
-                           }
-                        }
-                        else if (xpp.getName().equalsIgnoreCase("description"))
-                        {
-                            if (insideItem)
-                            {
-                                descriptions.add(xpp.nextText());
+                                    for (int j = 0; j < descriptionParts.length; j++) {
+                                        if(descriptionParts[j].startsWith(partTitles[0])){
+                                            weatherItem.getMaxtemp().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[1])){
+                                            weatherItem.getMintemp().add(descriptionParts[j].split(": ")[1]);
+                                        }  else if(descriptionParts[j].startsWith(partTitles[2])){
+                                            weatherItem.getWinddir().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[3])){
+                                            weatherItem.getWindspeed().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[4])){
+                                            weatherItem.getVisibility().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[5])){
+                                            weatherItem.getPressure().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[6])){
+                                            weatherItem.getHumidity().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[7])){
+                                            weatherItem.getUvrisk().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[8])){
+                                            weatherItem.getPollution().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[9])){
+                                            weatherItem.getSunrise().add(descriptionParts[j].split(": ")[1]);
+                                        } else if(descriptionParts[j].startsWith(partTitles[10])){
+                                            weatherItem.getSunset().add(descriptionParts[j].split(": ")[1]);
+                                        }
+                                    }
+                                }
                             }
+                        } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
+                            insideItem = false;
                         }
-                    }
-                    else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item"))
-                    {
-                        insideItem = false;
+                        eventType = xpp.next();
                     }
 
-                    eventType = xpp.next();
+                    items.add(weatherItem);
+
                 }
-            }
-            catch (MalformedURLException e)
-            {
+            } catch (MalformedURLException e) {
+                exception = e;
+            } catch (XmlPullParserException e) {
+                exception = e;
+            } catch (IOException e) {
                 exception = e;
             }
-            catch(XmlPullParserException e){
-                exception = e;
-            }
-            catch (IOException e){
-                exception = e;
-            }
-
             return exception;
         }
 
         @Override
         protected void onPostExecute(Exception s) {
             super.onPostExecute(s);
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, titles);
-
+            WeatherItemAdapter adapter = new WeatherItemAdapter(MainActivity.this, items);
             lvRss.setAdapter(adapter);
-
             progressDialog.dismiss();
         }
     }
