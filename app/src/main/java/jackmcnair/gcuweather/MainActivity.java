@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         items = getData();
         titles = new ArrayList<String>();
         descriptions = new ArrayList<String>();
+
+        lvRss.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
 
         for (int i = 0; i < items.size(); i++) {
             TextView item = new TextView(this);
