@@ -4,31 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="210dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/locationName"
-        android:layout_width="91dp"
-        android:layout_height="33dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Glasgow"
+        android:textAllCaps="true"
+        android:textColor="#2196F3"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/locationName">
 
         <LinearLayout
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="vertical">
 
@@ -41,17 +48,23 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Day " />
+                android:text="Day "
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Weather" />
+                android:text="Weather"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -61,7 +74,10 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Max Temp" />
+                android:text="Min Temp"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -71,22 +87,28 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Min Temp" />
+                android:text="Max Temp"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Wind" />
+                android:text="Wind"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -97,17 +119,19 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Today" />
+                android:text="Today"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/rain1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/temp1"
@@ -116,8 +140,7 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/maxTemp1"
@@ -126,8 +149,7 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/windspeed1"
@@ -136,14 +158,13 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -154,17 +175,18 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="Today" />
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/rain2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/temp2"
@@ -173,8 +195,7 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/maxTemp2"
@@ -183,24 +204,22 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/windspeed2"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="100dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -211,17 +230,18 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
-                android:text="TextView" />
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/rain3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/temp3"
@@ -230,8 +250,7 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/maxTemp3"
@@ -240,8 +259,7 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
             <TextView
                 android:id="@+id/windspeed3"
@@ -250,10 +268,19 @@
                 android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
+                android:paddingRight="5dp" />
 
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:srcCompat="@android:color/holo_blue_light" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
