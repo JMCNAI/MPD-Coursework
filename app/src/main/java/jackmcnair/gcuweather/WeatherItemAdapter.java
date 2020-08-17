@@ -30,7 +30,6 @@ public class WeatherItemAdapter extends ArrayAdapter<WeatherItem> {
         TextView locationName = convertView.findViewById(R.id.locationName);
         locationName.setText(currentItem.getLocationName());
 
-
         TextView day1 = convertView.findViewById(R.id.day1);
         day1.setText(currentItem.getDay().get(0));
         TextView day2 = convertView.findViewById(R.id.day2);
@@ -44,7 +43,6 @@ public class WeatherItemAdapter extends ArrayAdapter<WeatherItem> {
         temp2.setText(currentItem.getMintemp().get(1));
         TextView temp3 = convertView.findViewById(R.id.temp3);
         temp3.setText(currentItem.getMintemp().get(2));
-
 
         TextView maxTemp2 = convertView.findViewById(R.id.maxTemp2);
         maxTemp2.setText(currentItem.getMaxtemp().get(0));
@@ -64,7 +62,6 @@ public class WeatherItemAdapter extends ArrayAdapter<WeatherItem> {
         windspeed2.setText(currentItem.getWindspeed().get(1));
         TextView windspeed3 = convertView.findViewById(R.id.windspeed3);
         windspeed3.setText(currentItem.getWindspeed().get(2));
-
 
         return convertView;
     }

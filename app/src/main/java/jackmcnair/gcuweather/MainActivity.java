@@ -95,6 +95,60 @@ public class MainActivity extends AppCompatActivity{
                 windspeed2.setText(items.get(i).getWindspeed().get(1));
                 TextView windspeed3 = findViewById(R.id.windspeed3);
                 windspeed3.setText(items.get(i).getWindspeed().get(2));
+
+                TextView winddir1 = findViewById(R.id.winddir1);
+                winddir1.setText(items.get(i).getWinddir().get(0));
+                TextView winddir2 = findViewById(R.id.winddir2);
+                winddir2.setText(items.get(i).getWinddir().get(1));
+                TextView winddir3 = findViewById(R.id.winddir3);
+                winddir3.setText(items.get(i).getWinddir().get(2));
+
+                TextView visibility1 = findViewById(R.id.visibility1);
+                visibility1.setText(items.get(i).getVisibility().get(0));
+                TextView visibility2 = findViewById(R.id.visibility2);
+                visibility2.setText(items.get(i).getVisibility().get(1));
+                TextView visibility3 = findViewById(R.id.visibility3);
+                visibility3.setText(items.get(i).getVisibility().get(2));
+
+                TextView humidity1 = findViewById(R.id.humidity1);
+                humidity1.setText(items.get(i).getHumidity().get(0));
+                TextView humidity2 = findViewById(R.id.humidity2);
+                humidity2.setText(items.get(i).getHumidity().get(1));
+                TextView humidity3 = findViewById(R.id.humidity3);
+                humidity3.setText(items.get(i).getHumidity().get(2));
+
+                TextView pressure1 = findViewById(R.id.pressure1);
+                pressure1.setText(items.get(i).getPressure().get(0));
+                TextView pressure2 = findViewById(R.id.pressure2);
+                pressure2.setText(items.get(i).getPressure().get(1));
+                TextView pressure3 = findViewById(R.id.pressure3);
+                pressure3.setText(items.get(i).getPressure().get(2));
+
+                TextView uvrisk1 = findViewById(R.id.uvrisk1);
+                uvrisk1.setText(items.get(i).getUvrisk().get(0));
+                TextView uvrisk2 = findViewById(R.id.uvrisk2);
+                uvrisk2.setText(items.get(i).getUvrisk().get(1));
+                TextView uvrisk3 = findViewById(R.id.uvrisk3);
+                uvrisk3.setText(items.get(i).getUvrisk().get(2));
+
+                TextView pollution1 = findViewById(R.id.pollution1);
+                pollution1.setText(items.get(i).getPollution().get(0));
+                TextView pollution2 = findViewById(R.id.pollution2);
+                pollution2.setText(items.get(i).getPollution().get(1));
+                TextView pollution3 = findViewById(R.id.pollution3);
+                pollution3.setText(items.get(i).getPollution().get(2));
+
+                TextView sunrise2 = findViewById(R.id.sunrise2);
+                sunrise2.setText(items.get(i).getSunrise().get(0));
+                TextView sunrise3 = findViewById(R.id.sunrise3);
+                sunrise3.setText(items.get(i).getSunrise().get(1));
+
+                TextView sunset1 = findViewById(R.id.sunset1);
+                sunset1.setText(items.get(i).getSunset().get(0));
+                TextView sunset2 = findViewById(R.id.sunset2);
+                sunset2.setText(items.get(i).getSunset().get(1));
+                TextView sunset3 = findViewById(R.id.sunset3);
+                sunset3.setText(items.get(i).getSunset().get(2));
             }
         });
 

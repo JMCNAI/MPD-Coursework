@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -38,18 +39,15 @@
 
         <TextView
             android:id="@+id/locationName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="75dp"
             android:gravity="center"
             android:text="Glasgow"
             android:textAllCaps="true"
             android:textColor="#2196F3"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,11 +55,13 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="150dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/locationName">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="100dp"
@@ -368,6 +368,14 @@
                     android:paddingTop="5dp"
                     android:paddingRight="5dp" />
 
+                <ListView
+                    android:id="@+id/lvRss"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="56dp">
+
+                </ListView>
+
             </LinearLayout>
 
             <LinearLayout
@@ -629,17 +637,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ListView
-        android:id="@+id/lvRss"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" >
-
-    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
