@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<WeatherItem> items = new ArrayList<>();
     private String baseUrl = "https://weather-broker-cdn.api.bbci.co.uk/en/forecast/rss/3day/";
     private String[] locationIDs = new String[]{"2648579", "2643743", "5128581", "287286", "934154", "1185241"};
+    private String[] locationNames = new String[]{"Glasgow", "London", "New York", "Oman", "Mauritius", "Bangladesh"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     WeatherItem weatherItem = new WeatherItem();
 
                     URL url = new URL(baseUrl + locationIDs[i]);
+                    weatherItem.setLocationName(locationNames[i]);
                     XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                     factory.setNamespaceAware(false);
                     XmlPullParser xpp = factory.newPullParser();

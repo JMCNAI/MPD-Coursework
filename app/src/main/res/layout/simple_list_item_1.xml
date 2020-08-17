@@ -4,30 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="200dp">
+    android:layout_height="210dp">
 
     <TextView
         android:id="@+id/locationName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="91dp"
+        android:layout_height="33dp"
         android:text="Glasgow"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locationName">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
+                android:includeFontPadding="false"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="Day " />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="Weather" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="Max Temp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="Min Temp" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="Wind" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -35,24 +93,37 @@
                 android:id="@+id/day1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:text="Today" />
 
             <TextView
-                android:id="@+id/temp1"
+                android:id="@+id/rain1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/rain1"
+                android:id="@+id/temp1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/maxTemp1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
@@ -62,23 +133,16 @@
                 android:id="@+id/windspeed1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:text="TextView" />
 
-            <TextView
-                android:id="@+id/date1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -86,24 +150,37 @@
                 android:id="@+id/day2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:text="Today" />
 
             <TextView
-                android:id="@+id/temp2"
+                android:id="@+id/rain2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/rain2"
+                android:id="@+id/temp2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/maxTemp2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
@@ -112,16 +189,8 @@
             <TextView
                 android:id="@+id/windspeed2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp" />
-
-            <TextView
-                android:id="@+id/date2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
@@ -130,7 +199,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -138,15 +207,7 @@
                 android:id="@+id/day3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/temp3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
@@ -156,6 +217,27 @@
                 android:id="@+id/rain3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/temp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/maxTemp3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
@@ -165,15 +247,7 @@
                 android:id="@+id/windspeed3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:paddingRight="5dp"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/date3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:height="30dp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingRight="5dp"
