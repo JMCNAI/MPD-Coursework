@@ -368,14 +368,6 @@
                     android:paddingTop="5dp"
                     android:paddingRight="5dp" />
 
-                <ListView
-                    android:id="@+id/lvRss"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="56dp">
-
-                </ListView>
-
             </LinearLayout>
 
             <LinearLayout
@@ -633,9 +625,24 @@
                     android:paddingRight="5dp" />
 
             </LinearLayout>
+
         </LinearLayout>
 
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/lvRss"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" >
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
