@@ -1,5 +1,7 @@
 package jackmcnair.gcuweather;
 
+//Jack McNair S1630148
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -17,7 +19,6 @@ import java.net.*;
 import android.os.*;
 
 import java.net.MalformedURLException;
-
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

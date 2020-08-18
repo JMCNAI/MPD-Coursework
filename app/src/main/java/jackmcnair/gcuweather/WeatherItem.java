@@ -1,5 +1,7 @@
 package jackmcnair.gcuweather;
 
+//Jack McNair S1630148
+
 import java.util.ArrayList;
 import java.util.Date;
 

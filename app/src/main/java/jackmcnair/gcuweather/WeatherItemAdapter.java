@@ -1,5 +1,7 @@
 package jackmcnair.gcuweather;
 
+//Jack McNair S1630148
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
